@@ -49,3 +49,10 @@ object JawnAdapter extends Adapter {
   }
 }
 
+object JacksonAdapter extends Adapter {
+  val mapper = new com.fasterxml.jackson.databind.ObjectMapper
+
+  def parseJsonToAst(input: String): Any = {
+    mapper.readTree(input)
+  }
+}

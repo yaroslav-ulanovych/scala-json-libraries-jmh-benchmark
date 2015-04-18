@@ -48,6 +48,11 @@
             <artifactId>jawn-ast_${scala.version}</artifactId>
             <version>0.7.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.5.2</version>
+        </dependency>
     </dependencies>
 
     <prerequisites>

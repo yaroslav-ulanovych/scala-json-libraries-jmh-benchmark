@@ -39,6 +39,11 @@ trait BaseBenchmark {
   def jawnJson() = {
     perform(JawnAdapter)
   }
+
+  @Benchmark
+  def jackson() = {
+    perform(JacksonAdapter)
+  }
 }
 
 @State(Scope.Thread)
