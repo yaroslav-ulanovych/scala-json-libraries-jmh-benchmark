@@ -5,6 +5,10 @@ mvn clean install
 java -jar target/benchmarks.jar -bm sample -tu us -f 1 -wi 5 -i 3
 ```
 
+These numbers mean nothing, cause on my machine spray is ~2 times faster than json4s in some test,
+and on colleague's macbook they perform almast identically.
+So hell knows what factors performance can depend on, always measure in your production conditions.
+
 ```
 Benchmark                                         Mode    Cnt       Score       Error  Units
 ParseFewThousandsFlatClassesList.argonautJson   sample     29  105499,401 ? 18877,302  us/op
