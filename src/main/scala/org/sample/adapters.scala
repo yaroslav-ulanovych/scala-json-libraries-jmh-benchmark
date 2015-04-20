@@ -58,7 +58,7 @@ object ScalaUtilParsingJsonAdapter extends Adapter {
     scala.util.parsing.json.JSON.parseRaw(input).get
   }
 
-  def parseJsonToSmallCaseClass(input: String): Any = ()
+  def parseJsonToSmallCaseClass(input: String): Any = ???
 }
 
 object ArgonautAdapter extends Adapter {
@@ -94,7 +94,7 @@ object JawnAdapter extends Adapter {
     jawn.Parser.parseFromString(input)(jawn.ast.JawnFacade).get
   }
 
-  def parseJsonToSmallCaseClass(input: String): Any = ()
+  def parseJsonToSmallCaseClass(input: String): Any = ???
 }
 
 object JacksonAdapter extends Adapter {
@@ -104,5 +104,5 @@ object JacksonAdapter extends Adapter {
     mapper.readTree(input)
   }
 
-  def parseJsonToSmallCaseClass(input: String): Any = ()
+  def parseJsonToSmallCaseClass(input: String): Any = ???
 }
