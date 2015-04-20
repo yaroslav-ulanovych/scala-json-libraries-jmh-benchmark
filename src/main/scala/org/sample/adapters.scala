@@ -104,5 +104,7 @@ object JacksonAdapter extends Adapter {
     mapper.readTree(input)
   }
 
-  def parseJsonToSmallCaseClass(input: String): Any = ???
+  def parseJsonToSmallCaseClass(input: String): Any = {
+    mapper.readValue(input, classOf[java.Person])
+  }
 }

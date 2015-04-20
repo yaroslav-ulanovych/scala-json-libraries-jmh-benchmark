@@ -86,6 +86,7 @@ class ParseJsonToSmallCaseClass extends Test
   with SprayJsonTest
   with ArgonautJsonTest
   with PlayJsonTest
+  with JacksonTest
 {
   val input = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/person.json")).mkString
 

@@ -7,11 +7,12 @@ java -jar target/benchmarks.jar -bm sample -tu us -f 1 -wi 5 -i 3
 
 ```
 Benchmark                                  Mode    Cnt      Score     Error  Units
-ParseJsonToSmallCaseClass.argonautJson   sample  52299     14,371 ?   0,460  us/op
-ParseJsonToSmallCaseClass.json4sJackson  sample  58309     25,862 ?   0,448  us/op
-ParseJsonToSmallCaseClass.json4sNative   sample  58108     25,864 ?   0,463  us/op
-ParseJsonToSmallCaseClass.playJson       sample  36722     20,557 ?   0,613  us/op
-ParseJsonToSmallCaseClass.sprayJson      sample  42135      4,522 ?   0,181  us/op
+ParseJsonToSmallCaseClass.argonautJson   sample  51733     14,663 ?   0,467  us/op
+ParseJsonToSmallCaseClass.jackson        sample  34455      2,750 ?   0,165  us/op
+ParseJsonToSmallCaseClass.json4sJackson  sample  44874     33,158 ?   0,499  us/op
+ParseJsonToSmallCaseClass.json4sNative   sample  44069     33,941 ?   0,544  us/op
+ParseJsonToSmallCaseClass.playJson       sample  38243     19,529 ?   0,550  us/op
+ParseJsonToSmallCaseClass.sprayJson      sample  41841      4,551 ?   0,181  us/op
 
 ParseSublimeConfig.argonautJson          sample  10956    273,831 ?   4,272  us/op
 ParseSublimeConfig.jackson               sample  53941     55,613 ?   0,603  us/op
