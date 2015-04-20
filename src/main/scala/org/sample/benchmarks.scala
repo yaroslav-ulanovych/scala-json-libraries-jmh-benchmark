@@ -52,3 +52,10 @@ class ParseSublimeConfig extends BaseBenchmark {
 
   def perform(adapter: Adapter) = adapter.parseJsonToAst(input)
 }
+
+@State(Scope.Thread)
+class ParseJsonToSmallCaseClass extends BaseBenchmark {
+  val input = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/person.json")).mkString
+
+  def perform(adapter: Adapter) = adapter.parseJsonToSmallCaseClass(input)
+}
