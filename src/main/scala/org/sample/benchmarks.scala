@@ -92,3 +92,25 @@ class ParseJsonToSmallCaseClass extends Test
 
   def perform(adapter: Adapter) = adapter.parseJsonToSmallCaseClass(input)
 }
+
+@State(Scope.Thread)
+class ParseFewThousandsFlatClassesList extends Test
+  with Json4SNativeTest
+  with Json4SJacksonTest
+  with SprayJsonTest
+  with ArgonautJsonTest
+  with JacksonTest
+{
+  val data = (1 to 5000).toList.map { i =>
+    val isEven = i % 2 == 0
+    FlatCaseClass(i, i.toString, isEven, if (isEven) Some(i) else None)
+  }
+
+  import org.json4s.native.Serialization.write
+
+  implicit val formats = org.json4s.DefaultFormats
+
+  val input = write(data)
+
+  def perform(adapter: Adapter) = adapter.parseListOfFlatClasses(input)
+}

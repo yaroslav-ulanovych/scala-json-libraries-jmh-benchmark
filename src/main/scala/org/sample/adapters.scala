@@ -4,6 +4,8 @@ trait Adapter {
   def parseJsonToAst(input: String): Any
 
   def parseJsonToSmallCaseClass(input: String): Any
+
+  def parseListOfFlatClasses(input: String): Any
 }
 
 object Json4SNativeAdapter extends Adapter {
@@ -17,6 +19,10 @@ object Json4SNativeAdapter extends Adapter {
 
   def parseJsonToSmallCaseClass(input: String): Any = {
     parse(input).extract[Person]
+  }
+
+  def parseListOfFlatClasses(input: String): Any = {
+    parse(input).extract[List[FlatCaseClass]]
   }
 }
 
@@ -32,6 +38,10 @@ object Json4SJacksonAdapter extends Adapter {
   def parseJsonToSmallCaseClass(input: String): Any = {
     parse(input).extract[Person]
   }
+
+  def parseListOfFlatClasses(input: String): Any = {
+    parse(input).extract[List[FlatCaseClass]]
+  }
 }
 
 object SprayJsonAdapter extends Adapter {
@@ -40,6 +50,7 @@ object SprayJsonAdapter extends Adapter {
   object JsonProtocol extends DefaultJsonProtocol {
     implicit val addressFormat = jsonFormat2(Address)
     implicit val personFormat = jsonFormat3(Person)
+    implicit val flatCaseClassFormat = jsonFormat4(FlatCaseClass)
   }
 
   import JsonProtocol._
@@ -51,6 +62,10 @@ object SprayJsonAdapter extends Adapter {
   def parseJsonToSmallCaseClass(input: String): Any = {
     input.parseJson.convertTo[Person]
   }
+
+  def parseListOfFlatClasses(input: String): Any = {
+    input.parseJson.convertTo[List[FlatCaseClass]]
+  }
 }
 
 object ScalaUtilParsingJsonAdapter extends Adapter {
@@ -59,6 +74,8 @@ object ScalaUtilParsingJsonAdapter extends Adapter {
   }
 
   def parseJsonToSmallCaseClass(input: String): Any = ???
+
+  def parseListOfFlatClasses(input: String): Any = ???
 }
 
 object ArgonautAdapter extends Adapter {
@@ -66,6 +83,8 @@ object ArgonautAdapter extends Adapter {
 
   implicit val addressCodec = casecodec2(Address.apply, Address.unapply)("country", "city")
   implicit val personCodec = casecodec3(Person.apply, Person.unapply)("name", "age", "address")
+  implicit val flatCaseClassCodec =
+    casecodec4(FlatCaseClass.apply, FlatCaseClass.unapply)("long", "string", "boolean", "optInt")
 
   def parseJsonToAst(input: String): Any = {
     input.parseOption.get
@@ -73,6 +92,10 @@ object ArgonautAdapter extends Adapter {
 
   def parseJsonToSmallCaseClass(input: String): Any = {
     input.decodeOption[Person].get
+  }
+
+  def parseListOfFlatClasses(input: String): Any = {
+    input.decodeOption[List[FlatCaseClass]].get
   }
 }
 
@@ -87,6 +110,8 @@ object PlayJsonAdapter extends Adapter {
     implicit val xx = Json.reads[Address]
     Json.reads[Person].reads(Json.parse(input)).get
   }
+
+  def parseListOfFlatClasses(input: String): Any = ???
 }
 
 object JawnAdapter extends Adapter {
@@ -95,6 +120,8 @@ object JawnAdapter extends Adapter {
   }
 
   def parseJsonToSmallCaseClass(input: String): Any = ???
+
+  override def parseListOfFlatClasses(input: String): Any = ???
 }
 
 object JacksonAdapter extends Adapter {
@@ -106,5 +133,10 @@ object JacksonAdapter extends Adapter {
 
   def parseJsonToSmallCaseClass(input: String): Any = {
     mapper.readValue(input, classOf[java.Person])
+  }
+
+  override def parseListOfFlatClasses(input: String): Any = {
+    val tpe = mapper.getTypeFactory.constructCollectionType(classOf[_root_.java.util.List[_]], classOf[java.FlatClass])
+    mapper.readValue(input, tpe)
   }
 }
