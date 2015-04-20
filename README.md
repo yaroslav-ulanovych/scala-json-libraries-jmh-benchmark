@@ -7,12 +7,18 @@ java -jar target/benchmarks.jar -bm sample -tu us -f 1 -wi 5 -i 3
 
 ```
 Benchmark                                  Mode    Cnt      Score     Error  Units
-ParseSublimeConfig.argonautJson          sample  11268    267,002 ?   4,340  us/op
-ParseSublimeConfig.jackson               sample  55349     54,285 ?   0,635  us/op
-ParseSublimeConfig.jawnJson              sample  25464    117,802 ?   1,355  us/op
-ParseSublimeConfig.json4sJackson         sample  38549     77,825 ?   1,016  us/op
-ParseSublimeConfig.json4sNative          sample  28141    106,455 ?   1,443  us/op
-ParseSublimeConfig.playJson              sample  31097     96,675 ?   1,488  us/op
-ParseSublimeConfig.scalaUtilParsingJson  sample     90  33901,045 ? 364,575  us/op
-ParseSublimeConfig.sprayJson             sample  16686    179,903 ?   2,031  us/op
+ParseJsonToSmallCaseClass.argonautJson   sample  52299     14,371 ?   0,460  us/op
+ParseJsonToSmallCaseClass.json4sJackson  sample  58309     25,862 ?   0,448  us/op
+ParseJsonToSmallCaseClass.json4sNative   sample  58108     25,864 ?   0,463  us/op
+ParseJsonToSmallCaseClass.playJson       sample  36722     20,557 ?   0,613  us/op
+ParseJsonToSmallCaseClass.sprayJson      sample  42135      4,522 ?   0,181  us/op
+
+ParseSublimeConfig.argonautJson          sample  10956    273,831 ?   4,272  us/op
+ParseSublimeConfig.jackson               sample  53941     55,613 ?   0,603  us/op
+ParseSublimeConfig.jawnJson              sample  25242    118,998 ?   1,323  us/op
+ParseSublimeConfig.json4sJackson         sample  38358     78,198 ?   0,889  us/op
+ParseSublimeConfig.json4sNative          sample  27522    108,968 ?   1,537  us/op
+ParseSublimeConfig.playJson              sample  27958    107,179 ?   1,670  us/op
+ParseSublimeConfig.scalaUtilParsingJson  sample     89  34448,741 ? 816,802  us/op
+ParseSublimeConfig.sprayJson             sample  16649    180,130 ?   1,849  us/op
 ```
