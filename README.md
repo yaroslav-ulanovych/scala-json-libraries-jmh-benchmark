@@ -33,3 +33,55 @@ ParseSublimeConfig.playJson                     sample  27568     108,955 ?     
 ParseSublimeConfig.scalaUtilParsingJson         sample     89   34211,633 ?   454,428  us/op
 ParseSublimeConfig.sprayJson                    sample  16551     181,395 ?     1,915  us/op
 ```
+
+macbook java 7
+```
+Benchmark                                         Mode    Cnt      Score     Error  Units
+ParseFewThousandsFlatClassesList.argonautJson   sample    269  11197.520 ± 231.041  us/op
+ParseFewThousandsFlatClassesList.jackson        sample   1875   1605.901 ±  14.542  us/op
+ParseFewThousandsFlatClassesList.json4sJackson  sample    291  10358.235 ± 125.289  us/op
+ParseFewThousandsFlatClassesList.json4sNative   sample    257  11741.272 ± 179.887  us/op
+ParseFewThousandsFlatClassesList.sprayJson      sample    331   9119.750 ± 148.185  us/op
+
+ParseJsonToSmallCaseClass.argonautJson          sample  38212      2.514 ±   0.017  us/op
+ParseJsonToSmallCaseClass.jackson               sample  38271      0.651 ±   0.009  us/op
+ParseJsonToSmallCaseClass.json4sJackson         sample  30678      3.095 ±   0.014  us/op
+ParseJsonToSmallCaseClass.json4sNative          sample  56598      3.385 ±   0.050  us/op
+ParseJsonToSmallCaseClass.playJson              sample  30016      3.212 ±   0.092  us/op
+ParseJsonToSmallCaseClass.sprayJson             sample  58568      0.842 ±   0.007  us/op
+
+ParseSublimeConfig.argonautJson                 sample  36406     41.132 ±   0.255  us/op
+ParseSublimeConfig.jackson                      sample  53153     14.143 ±   0.053  us/op
+ParseSublimeConfig.jawnJson                     sample  38769     19.374 ±   0.066  us/op
+ParseSublimeConfig.json4sJackson                sample  48555     15.515 ±   0.099  us/op
+ParseSublimeConfig.json4sNative                 sample  31680     23.691 ±   0.131  us/op
+ParseSublimeConfig.playJson                     sample  58732     25.622 ±   0.145  us/op
+ParseSublimeConfig.scalaUtilParsingJson         sample    398   7585.915 ±  91.750  us/op
+ParseSublimeConfig.sprayJson                    sample  46215     32.537 ±   0.109  us/op
+```
+
+macbook java 8
+```
+Benchmark                                         Mode    Cnt      Score     Error  Units
+ParseFewThousandsFlatClassesList.argonautJson   sample    299  10079.886 ± 171.479  us/op
+ParseFewThousandsFlatClassesList.jackson        sample   1961   1535.301 ±   9.073  us/op
+ParseFewThousandsFlatClassesList.json4sJackson  sample    306   9886.566 ± 106.267  us/op
+ParseFewThousandsFlatClassesList.json4sNative   sample    263  11485.620 ± 139.397  us/op
+ParseFewThousandsFlatClassesList.sprayJson      sample    286  10568.253 ± 255.223  us/op
+
+ParseJsonToSmallCaseClass.argonautJson          sample  40117      2.376 ±   0.011  us/op
+ParseJsonToSmallCaseClass.jackson               sample  38826      0.642 ±   0.004  us/op
+ParseJsonToSmallCaseClass.json4sJackson         sample  30952      3.069 ±   0.011  us/op
+ParseJsonToSmallCaseClass.json4sNative          sample  56110      3.391 ±   0.059  us/op
+ParseJsonToSmallCaseClass.playJson              sample  52964      3.605 ±   0.098  us/op
+ParseJsonToSmallCaseClass.sprayJson             sample  58634      0.824 ±   0.004  us/op
+
+ParseSublimeConfig.argonautJson                 sample  39324     38.247 ±   0.310  us/op
+ParseSublimeConfig.jackson                      sample  50065     15.030 ±   0.088  us/op
+ParseSublimeConfig.jawnJson                     sample  39943     18.878 ±   0.149  us/op
+ParseSublimeConfig.json4sJackson                sample  47132     15.968 ±   0.084  us/op
+ParseSublimeConfig.json4sNative                 sample  34438     21.827 ±   0.133  us/op
+ParseSublimeConfig.playJson                     sample  31376     24.148 ±   0.250  us/op
+ParseSublimeConfig.scalaUtilParsingJson         sample    424   7133.976 ±  75.038  us/op
+ParseSublimeConfig.sprayJson                    sample  47911     31.341 ±   0.098  us/op
+```
