@@ -9,6 +9,36 @@ These numbers mean nothing, cause on my machine spray is ~2 times faster than js
 and on colleague's macbook they perform almast identically.
 So hell knows what factors performance can depend on, always measure in your production conditions.
 
+my laptop java 8
+```
+Benchmark                                         Mode    Cnt      Score     Error  Units
+ParseFewThousandsFlatClassesList.argonautJson   sample    126  24346,364 ? 767,984  us/op
+ParseFewThousandsFlatClassesList.jackson        sample    919   3287,778 ?  31,095  us/op
+ParseFewThousandsFlatClassesList.json4sJackson  sample    130  23359,803 ? 536,556  us/op
+ParseFewThousandsFlatClassesList.json4sNative   sample    122  24784,157 ? 727,370  us/op
+ParseFewThousandsFlatClassesList.rojoma         sample    377   8050,563 ? 153,616  us/op
+ParseFewThousandsFlatClassesList.sprayJson      sample    146  20772,668 ? 441,027  us/op
+
+ParseJsonToSmallCaseClass.argonautJson          sample  36666      5,151 ?   0,136  us/op
+ParseJsonToSmallCaseClass.jackson               sample  40947      1,218 ?   0,049  us/op
+ParseJsonToSmallCaseClass.json4sJackson         sample  32892      5,740 ?   0,196  us/op
+ParseJsonToSmallCaseClass.json4sNative          sample  51979      7,299 ?   0,152  us/op
+ParseJsonToSmallCaseClass.playJson              sample  40614      9,241 ?   0,160  us/op
+ParseJsonToSmallCaseClass.rojoma                sample  38702      2,639 ?   0,644  us/op
+ParseJsonToSmallCaseClass.sprayJson             sample  54546      1,724 ?   0,031  us/op
+
+ParseSublimeConfig.argonautJson                 sample  36003     83,625 ?   1,715  us/op
+ParseSublimeConfig.jackson                      sample  43224     34,781 ?   0,782  us/op
+ParseSublimeConfig.jawnJson                     sample  30753     48,482 ?   0,353  us/op
+ParseSublimeConfig.json4sJackson                sample  41545     36,005 ?   0,368  us/op
+ParseSublimeConfig.json4sNative                 sample  57865     51,920 ?   0,466  us/op
+ParseSublimeConfig.playJson                     sample  31506     47,746 ?   0,693  us/op
+ParseSublimeConfig.rojoma                       sample  36389     82,983 ?   0,567  us/op
+ParseSublimeConfig.scalaUtilParsingJson         sample    210  14310,566 ? 259,158  us/op
+ParseSublimeConfig.sprayJson                    sample  37789     79,594 ?   0,634  us/op
+```
+
+my laptop java 7
 ```
 Benchmark                                         Mode    Cnt       Score       Error  Units
 ParseFewThousandsFlatClassesList.argonautJson   sample     29  105499,401 ? 18877,302  us/op

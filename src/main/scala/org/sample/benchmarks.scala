@@ -62,6 +62,13 @@ trait JacksonTest extends Test {
   }
 }
 
+trait RojomaTest extends Test {
+  @Benchmark
+  def rojoma() = {
+    perform(RojomaAdapter)
+  }
+}
+
 trait AllTests extends Test
   with Json4SNativeTest
   with Json4SJacksonTest
@@ -71,6 +78,7 @@ trait AllTests extends Test
   with PlayJsonTest
   with JawnJsonTest
   with JacksonTest
+  with RojomaTest
 
 @State(Scope.Thread)
 class ParseSublimeConfig extends AllTests {
@@ -87,6 +95,7 @@ class ParseJsonToSmallCaseClass extends Test
   with ArgonautJsonTest
   with PlayJsonTest
   with JacksonTest
+  with RojomaTest
 {
   val input = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/person.json")).mkString
 
@@ -100,6 +109,7 @@ class ParseFewThousandsFlatClassesList extends Test
   with SprayJsonTest
   with ArgonautJsonTest
   with JacksonTest
+  with RojomaTest
 {
   val data = (1 to 5000).toList.map { i =>
     val isEven = i % 2 == 0

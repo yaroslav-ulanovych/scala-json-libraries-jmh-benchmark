@@ -140,3 +140,25 @@ object JacksonAdapter extends Adapter {
     mapper.readValue(input, tpe)
   }
 }
+
+object RojomaAdapter extends Adapter {
+
+  import com.rojoma.json.v3.util.{JsonUtil, AutomaticJsonCodecBuilder}
+  import com.rojoma.json.v3.io.JsonReader
+
+  implicit val addressCodec = AutomaticJsonCodecBuilder[Address]
+  implicit val personCodec = AutomaticJsonCodecBuilder[Person]
+  implicit val flatCaseClassCodec = AutomaticJsonCodecBuilder[FlatCaseClass]
+
+  def parseJsonToAst(input: String): Any = {
+    JsonReader.fromString(input)
+  }
+
+  def parseJsonToSmallCaseClass(input: String): Any = {
+    JsonUtil.parseJson[Person](input).right.get
+  }
+
+  def parseListOfFlatClasses(input: String): Any = {
+    JsonUtil.parseJson[List[FlatCaseClass]](input).right.get
+  }
+}
